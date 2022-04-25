@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <pthread.h>
 #include <unistd.h>
-#include <windows.h>
 
 #define N1 3
 #define N2 4
@@ -30,7 +29,7 @@ void * producer()
     int id = ++product_id;
     while(1)
     {
-        Sleep(1);
+        sleep(1);
         sem_wait(&empty_sem);
         pthread_mutex_lock(&mutex);
         if(fscanf(fp, "%d", &data)==EOF)

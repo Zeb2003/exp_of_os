@@ -53,7 +53,7 @@ void *consumer()
     int id = ++consumer_id;
     while(1)
     {
-        Sleep(1);
+        sleep(1);
         sem_wait(&full_sem);
         pthread_mutex_lock(&mutex);
 
